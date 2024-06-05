@@ -1396,9 +1396,9 @@ class Config:
 
         if self.known_args_namespace.confcutdir is None:
             if self.inipath is not None:
-                confcutdir = str(self.inipath.parent)
+                confcutdir = str(self.inipath.parent.resolve())
             else:
-                confcutdir = str(self.rootpath)
+                confcutdir = str(self.rootpath.resolve())
             self.known_args_namespace.confcutdir = confcutdir
         try:
             self.hook.pytest_load_initial_conftests(
